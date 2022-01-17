@@ -7,19 +7,20 @@ void swap(int *x,int *y){
     *y = temp;
 }
 
-void partition(int *arr, int p, int r){
+int partition(int *arr, int p, int r){
     
     int key = *(arr+r);
     int i = p-1;
     int j = p;
     
     for( j = p; j < r; j++){
-        if( *(arr+j) < key ){
+        if( *(arr+j) <= key ){
             i++;
             swap(arr+j, arr+i);
         }
     }
     swap(arr+i+1, arr+r);
+    return i+1;
 }
 
 int main() {
